@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jelajah Nusantara - Cinematic</title>
+    <link rel="stylesheet" href="design.css">
+</head>
+<body>
+
+    <div id="video-layer">
+        <video id="bg-video" autoplay loop muted playsinline>
+            <source src="intro.mp4" type="video/mp4">
+        </video>
+        <div class="overlay-dark"></div>
+    </div>
+    
+    <div id="image-layer"></div>
+
+    <div id="intro-screen">
+        <div class="intro-content" id="intro-txt">
+            <h1 class="main-title">NUSANTARA</h1>
+            <p style="letter-spacing:5px; margin-bottom:20px; color:#ddd;">EXPLORE INDONESIA</p>
+            <button class="btn-start" onclick="mulai()">MULAI JELAJAH</button>
+        </div>
+    </div>
+
+    <header>
+        <div class="hamburger" onclick="toggleSidebar()">
+            <div></div><div></div><div></div>
+        </div>
+        <div class="region-title" id="header-text">INDONESIA</div>
+    </header>
+
+    <button id="btn-home-top" onclick="goHome()">MENU UTAMA</button>
+
+    <nav id="sidebar">
+        <div style="display:flex; justify-content:space-between; color:white; margin-bottom:20px; border-bottom:1px solid #00e5ff; padding-bottom:10px;">
+            <h3 style="color:#00e5ff;">MENU</h3> 
+            <span onclick="toggleSidebar()" style="cursor:pointer; color:red; font-size:1.5rem;">✕</span>
+        </div>
+        <ul class="menu-list">
+            <li onclick="goHome(); toggleSidebar()">HOME</li>
+            <li onclick="bukaModal('about')">ABOUT US</li>
+            <li onclick="bukaModal('contact')">CONTACT US</li>
+        </ul>
+    </nav>
+
+    <div id="slider-area">
+        <button class="arrow" onclick="geser(-1)">❮</button>
+        
+        <div class="card" onclick="bukaKonten()">
+            <img id="card-img" src="" alt="Cover Daerah">
+            <div class="card-info">
+                <h2 id="card-title" style="color:white; text-transform:uppercase;">TITLE</h2>
+                <p style="color:#00e5ff; font-size:0.9rem; margin-top:5px;">KLIK UNTUK MASUK</p>
+            </div>
+        </div>
+        
+        <button class="arrow" onclick="geser(1)">❯</button>
+    </div>
+
+    <div id="content-layer">
+        <h2 id="content-title" style="color:white; margin-bottom:30px; border-bottom:2px solid #00e5ff; padding-bottom:10px; text-transform:uppercase; letter-spacing:2px;">LIST DATA</h2>
+        
+        <div id="content-grid" class="grid-container"></div>
+        
+        <button id="btn-back-content" class="btn-back-bottom" onclick="goBack()" style="display:none;">KEMBALI</button>
+    </div>
+
+    <div id="detail-view">
+        <div class="detail-split">
+            <div class="detail-img">
+                <img id="detail-img-src" src="" alt="">
+            </div>
+            <div class="detail-text">
+                <h2 id="detail-head" style="color:#00e5ff; font-size:3rem; margin-bottom:20px; text-shadow:0 0 10px rgba(0,229,255,0.5);">JUDUL</h2>
+                <p id="detail-desc" style="font-family:'Lato'; line-height:1.8; color:#ccc; font-size:1.1rem;">Deskripsi...</p>
+                </div>
+        </div>
+    </div>
+
+    <div id="modal-overlay">
+        <div id="modal-box" class="modal-box">
+            <div class="modal-header">
+                <h2 id="modal-title" style="color:white; letter-spacing:2px;">JUDUL</h2>
+                <button onclick="tutupModal()" style="background:red; color:white; border:none; padding:5px 15px; cursor:pointer; font-weight:bold;">✕</button>
+            </div>
+            <div class="modal-body">
+                <div id="accordion-container" class="accordion-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="edit.js"></script>
+</body>
+</html>
